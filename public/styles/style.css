@@ -18,7 +18,8 @@
     margin-top: 1%;
 }
 .card-img-top{
-    height: auto;
+    height: 180px;
+    width: 180px;
 }
 .takeOrderbtn{
     background-color: #aca1ff;
@@ -85,14 +86,25 @@
     opacity: 0.8;
 }
 .photoBar{
-    color: black;
+    color: white;
     height: 100vh;
-    background: url(https://i.imgur.com/o4wqOfu.jpeg) center no-repeat;
+    background: url(https://www.wallpaperup.com/uploads/wallpapers/2014/04/09/328074/327f039544cf2f77f78fa80123565fc2.jpg) center no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+.photoBarText{
+    background: rgb(0,0,0,0.6);
+]}
 .itemList{
     display: flex;
+}
+.pageLinks{
+    color: black;
+}
+.pageLinks:hover{
+    text-decoration: none;
+    opacity: 0.5;
+    color: black;
 }

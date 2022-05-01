@@ -17,7 +17,7 @@ router
         productModel.find().exec((err, products) => {
             res.render(path.resolve('views/index.ejs'),
                 {
-                    title: 'Menu',
+                    title: 'Products',
                     activePage: 'index',
                     products: products,
                     vegetables: vegetables,

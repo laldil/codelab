@@ -19,16 +19,16 @@
 <section class="center itemList">
     <div class="col-medium-2">
         <ul class="list-group">
-            <li class="list-group-item">Products</li>
-            <li class="list-group-item">Vegetables</li>
-            <li class="list-group-item">Fruits</li>
-            <li class="list-group-item">Sweets</li>
-            <li class="list-group-item">Drinks</li>
+            <a href="#products" class="pageLinks"><li class="list-group-item">Products</li></a>
+            <a href="#vegetables" class="pageLinks"><li class="list-group-item">Vegetables</li></a>
+            <a href="#fruits" class="pageLinks"><li class="list-group-item">Fruits</li></a>
+            <a href="#sweets" class="pageLinks"><li class="list-group-item">Sweets</li></a>
+            <a href="#drinks" class="pageLinks"><li class="list-group-item">Drinks</li></a>
         </ul>
     </div>
     <div class="col">
         <section>
-            <h1>Products</h1>
+            <h1 id="products">Products</h1>
             <%if(products != '') {%>
             <%products.forEach(element => {%>
             <div class="card" style="width: 18rem;">
@@ -41,30 +41,30 @@
             </div>
             <%})%>
             <%}else{%>
-                <h1>List is empty</h1>
+                <h6>List is empty</h6>
             <%}%>
         </section>
 
         <section>
-            <h1>Vegetables</h1>
+            <h1 id="vegetables" style="margin: 1%">Vegetables</h1>
             <%if(vegetables != '') {%>
             <%vegetables.forEach(element => {%>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <img src="<%=element.img%>" class="card-img-top" alt="...">
-                    <h5 class="card-title"><%=element.price%></h5>
-                    <p class="card-text"><%=element.description%></p>
+                    <h5 class="card-title"><%=element.title%></h5>
+                    <p class="card-text"><%=element.price%></p>
                     <a href="#" class="takeOrderbtn">Add to cart</a>
                 </div>
             </div>
             <%})%>
             <%}else{%>
-                <h1>List is empty</h1>
+                <h6>List is empty</h6>
             <%}%>
         </section>
 
         <section>
-            <h1>Fruits</h1>
+            <h1 id="fruits" style="margin: 1%">Fruits</h1>
             <%if(fruits != '') {%>
             <%fruits.forEach(element => {%>
             <div class="card" style="width: 18rem;">
@@ -77,12 +77,12 @@
             </div>
             <%})%>
             <%}else{%>
-                <h1>List is empty</h1>
+                <h6>List is empty</h6>
             <%}%>
         </section>
 
         <section>
-            <h1>Sweets</h1>
+            <h1 id="sweets" style="margin: 1%">Sweets</h1>
             <%if(sweets != '') {%>
             <%sweets.forEach(element => {%>
             <div class="card" style="width: 18rem;">
@@ -95,12 +95,12 @@
             </div>
             <%})%>
             <%}else{%>
-                <h1>List is empty</h1>
+                <h6>List is empty</h6>
             <%}%>
         </section>
 
         <section>
-            <h1>Drinks</h1>
+            <h1 id="drinks" style="margin: 1%">Drinks</h1>
             <%if(drinks != '') {%>
             <%drinks.forEach(element => {%>
             <div class="card" style="width: 18rem;">
@@ -113,7 +113,7 @@
             </div>
             <%})%>
             <%}else{%>
-                <h1>List is empty</h1>
+                <h6>List is empty</h6>
             <%}%>
         </section>
     </div>
