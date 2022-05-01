@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/styles/style.css" type="text/css">
+</head>
+
+<body>
+<!-- Navigation bar -->
+<%- include ('modules/navbar')%>
+<!--Drinks-->
+<section class="center itemList">
+    <div class="col-medium-2">
+        <ul class="list-group">
+            <li class="list-group-item">Products</li>
+            <li class="list-group-item">Vegetables</li>
+            <li class="list-group-item">Fruits</li>
+            <li class="list-group-item">Sweets</li>
+            <li class="list-group-item">Drinks</li>
+        </ul>
+    </div>
+    <div class="col">
+        <section>
+            <h1>Products</h1>
+            <%if(products != '') {%>
+            <%products.forEach(element => {%>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <img src="<%=element.img%>" class="card-img-top" alt="...">
+                    <h5 class="card-title"><%=element.title%></h5>
+                    <p class="card-text"><%=element.description%></p>
+                    <a href="#" class="takeOrderbtn">Add to cart</a>
+                </div>
+            </div>
+            <%})%>
+            <%}else{%>
+                <h1>List is empty</h1>
+            <%}%>
+        </section>
+
+        <section>
+            <h1>Vegetables</h1>
+            <%if(vegetables != '') {%>
+            <%vegetables.forEach(element => {%>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <img src="<%=element.img%>" class="card-img-top" alt="...">
+                    <h5 class="card-title"><%=element.price%></h5>
+                    <p class="card-text"><%=element.description%></p>
+                    <a href="#" class="takeOrderbtn">Add to cart</a>
+                </div>
+            </div>
+            <%})%>
+            <%}else{%>
+                <h1>List is empty</h1>
+            <%}%>
+        </section>
+
+        <section>
+            <h1>Fruits</h1>
+            <%if(fruits != '') {%>
+            <%fruits.forEach(element => {%>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <img src="<%=element.img%>" class="card-img-top" alt="...">
+                    <h5 class="card-title"><%=element.price%></h5>
+                    <p class="card-text"><%=element.description%></p>
+                    <a href="#" class="takeOrderbtn">Add to cart</a>
+                </div>
+            </div>
+            <%})%>
+            <%}else{%>
+                <h1>List is empty</h1>
+            <%}%>
+        </section>
+
+        <section>
+            <h1>Sweets</h1>
+            <%if(sweets != '') {%>
+            <%sweets.forEach(element => {%>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <img src="<%=element.img%>" class="card-img-top" alt="...">
+                    <h5 class="card-title"><%=element.price%></h5>
+                    <p class="card-text"><%=element.description%></p>
+                    <a href="#" class="takeOrderbtn">Add to cart</a>
+                </div>
+            </div>
+            <%})%>
+            <%}else{%>
+                <h1>List is empty</h1>
+            <%}%>
+        </section>
+
+        <section>
+            <h1>Drinks</h1>
+            <%if(drinks != '') {%>
+            <%drinks.forEach(element => {%>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <img src="<%=element.img%>" class="card-img-top" alt="...">
+                    <h5 class="card-title"><%=element.price%></h5>
+                    <p class="card-text"><%=element.description%></p>
+                    <a href="#" class="takeOrderbtn">Add to cart</a>
+                </div>
+            </div>
+            <%})%>
+            <%}else{%>
+                <h1>List is empty</h1>
+            <%}%>
+        </section>
+    </div>
+</section>
+</body>
+
+</html>

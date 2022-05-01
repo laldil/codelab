@@ -1,0 +1,11 @@
+<script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+<script type="text/javascript">
+    var map;
+    DG.then(function () {
+        map = DG.map('map', {
+            center: [51.098029, 71.427887],
+            zoom: 14
+        });
+        DG.marker([51.090868, 71.417847]).addTo(map).bindPopup('We are here!');
+    });
+</script>
