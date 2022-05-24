@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 const {secret} = require('../config')
+const path = require('path')
 
 module.exports = function (roles) {
     return function (req, res, next) {
@@ -8,9 +9,10 @@ module.exports = function (roles) {
         }
 
         try {
-            const token = req.headers.authorization.split(' ')[1]
+            const cookies = req.cookies
+            const token = cookies.token
             if (!token) {
-                return res.status(403).json({message: 'The user is not logged in'})
+                return res.redirect('/auth')
             }
             const {roles: userRoles} = jwt.verify(token, secret)
             let hasRole = false
@@ -20,7 +22,11 @@ module.exports = function (roles) {
                 }
             })
             if (!hasRole) {
-                return res.status(403).json({message: 'You don\'t have access'})
+                return res.render(path.resolve('views/access.ejs'), {
+                    title: 'Unavailable page',
+                    activePage: 'auth',
+                    isAuth: req.cookies.isAuth,
+                })
             }
             next();
         } catch (e) {

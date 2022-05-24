@@ -1,4 +1,5 @@
 const vegetableModel = require("../models/vegetableModel");
+const drinksModel = require("../models/drinksModel");
 
 class vegetableController{
     async addVegetable(req,res){
@@ -9,6 +10,15 @@ class vegetableController{
                 img: req.body.vegetableImg
             })
             await product.save()
+            res.redirect('/admin')
+        } catch (e){
+            console.log(e)
+        }
+    }
+    async deleteVegetable(req,res){
+        try{
+            const vegetableTitle = req.body.vegetableDel
+            const drink = await drinksModel.findOneAndDelete({title:vegetableTitle})
             res.redirect('/admin')
         } catch (e){
             console.log(e)

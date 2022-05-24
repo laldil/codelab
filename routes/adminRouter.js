@@ -6,17 +6,23 @@ const vegetableController = require('../controllers/vegetableController')
 const fruitsController = require('../controllers/fruitsController')
 const sweetsController = require('../controllers/sweetsController')
 const drinksController = require('../controllers/drinksController')
-const roleMiddleware = require('../middlewares/roleMiddleware')
-
 
 router
     .route('/')
     .get((req,res) => res.render(path.resolve('views/admin.ejs'),
-        {title: 'Admin Panel'}))
+        {
+            title: 'Admin Panel',
+            isAuth: req.cookies.isAuth,
+        }))
     .post(productController.addProduct)
 router.post('/addVegetable', vegetableController.addVegetable)
 router.post('/addFruits', fruitsController.addFruits)
 router.post('/addSweets', sweetsController.addSweets)
 router.post('/addDrinks', drinksController.addDrinks)
+router.post('/deleteDrinks', drinksController.deleteDrinks)
+router.post('/deleteProduct', productController.deleteProduct)
+router.post('/deleteVegetable', vegetableController.deleteVegetable)
+router.post('/deleteFruits', fruitsController.deleteFruits)
+router.post('/deleteSweet', sweetsController.deleteSweets)
 
 module.exports = router

@@ -14,6 +14,15 @@ class drinksController{
             console.log(e)
         }
     }
+    async deleteDrinks(req,res){
+        try{
+            const drinkTitle = req.body.drinkDel
+            const drink = await drinksModel.findOneAndDelete({title:drinkTitle})
+            res.redirect('/admin')
+        } catch (e){
+            console.log(e)
+        }
+    }
 }
 
 module.exports = new drinksController()

@@ -54,13 +54,20 @@ class authController {
                 return res.status(400).json({message: 'Invalid password'})
             }
             const token = generateAccessToken(user._id, user.roles)
-            return res.json({token})
-            // return res.redirect('/admin')
+            res.cookie('isAuth', true, {httpOnly: true})
+            res.cookie('token', token, {httpOnly: true})
+            return res.redirect('/')
         } catch (e) {
             console.log(e)
             res.status(400).json({message: 'Login error'})
         }
     }
+    async logout(req, res){
+        res.cookie('token', '', {maxAge: 1})
+        res.cookie('isAuth', false, {httpOnly: true})
+        res.redirect('/')
+    }
 }
+
 
 module.exports = new authController()

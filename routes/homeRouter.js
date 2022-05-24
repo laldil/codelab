@@ -6,6 +6,7 @@ router
     .route('/')
     .get((req,res) => res.render(path.resolve('views/home.ejs'),
         {
+            isAuth: req.cookies.isAuth,
             title: 'Home',
             activePage: 'home'
         }))

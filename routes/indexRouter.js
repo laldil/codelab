@@ -23,7 +23,8 @@ router
                     vegetables: vegetables,
                     fruits: fruits,
                     sweets: sweets,
-                    drinks: drinks
+                    drinks: drinks,
+                    isAuth: req.cookies.isAuth,
                 })
         })
     })
