@@ -1,5 +1,4 @@
 const vegetableModel = require("../models/vegetableModel");
-const drinksModel = require("../models/drinksModel");
 
 class vegetableController{
     async addVegetable(req,res){
@@ -18,7 +17,7 @@ class vegetableController{
     async deleteVegetable(req,res){
         try{
             const vegetableTitle = req.body.vegetableDel
-            const drink = await drinksModel.findOneAndDelete({title:vegetableTitle})
+            const drink = await vegetableModel.findOneAndDelete({title:vegetableTitle})
             res.redirect('/admin')
         } catch (e){
             console.log(e)
