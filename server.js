@@ -12,14 +12,13 @@ app.use(express.json())
 app.use('/', require('./routes/indexRouter'))
 app.use('/home', require('./routes/homeRouter'))
 app.use('/tastamats', require('./routes/tastamatsRouter'))
-// app.use('/sign', require('./routes/signRouter'))
 app.use('/admin', require('./routes/adminRouter'))
 app.use('/auth', require('./routes/authRouter'))
 
 const start = async () => {
     try {
         await mongoose.connect('mongodb+srv://aldi:7777@cluster0.hr21x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
-        app.listen(PORT, () =>
+        app.listen(process.env.PORT || PORT, () =>
             console.log(`App listening at localhost: ${PORT}`)
         )
     } catch (e){

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/styles/signStyle.css" type="text/css">
 </head>
 <body>
+<%- include ('modules/navbar')%>
 <section class="forms-section">
     <h1 class="section-title">Login | Sign up</h1>
     <div class="forms">
@@ -61,6 +62,8 @@
         </div>
     </div>
 </section>
+
+<%- include ('modules/footer')%>
 
 <script type="text/javascript">
     const switchers = [...document.querySelectorAll('.switcher')]

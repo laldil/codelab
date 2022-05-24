@@ -34,7 +34,7 @@ class authController {
             const userRole = await Role.findOne({value: 'USER'})
             const user = new User({username, password: hashPassword, roles: [userRole.value]})
             await user.save()
-            return res.json({message: 'The user has been successfully registered'})
+            return res.redirect('/auth')
         } catch (e) {
             console.log(e)
             res.status(400).json({message: 'Registration error'})
@@ -55,6 +55,7 @@ class authController {
             }
             const token = generateAccessToken(user._id, user.roles)
             return res.json({token})
+            // return res.redirect('/admin')
         } catch (e) {
             console.log(e)
             res.status(400).json({message: 'Login error'})

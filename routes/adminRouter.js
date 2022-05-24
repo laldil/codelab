@@ -6,6 +6,8 @@ const vegetableController = require('../controllers/vegetableController')
 const fruitsController = require('../controllers/fruitsController')
 const sweetsController = require('../controllers/sweetsController')
 const drinksController = require('../controllers/drinksController')
+const roleMiddleware = require('../middlewares/roleMiddleware')
+
 
 router
     .route('/')
